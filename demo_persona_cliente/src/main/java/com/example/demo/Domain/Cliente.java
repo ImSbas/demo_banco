@@ -17,4 +17,12 @@ public class Cliente extends Persona{
     @Column(name = "password")
     private String password;
 
+    public Cliente() {
+    }
+
+    public Cliente(String identification, String password) {
+
+        this.identification = identification;
+        this.password = password;
+    }
 }

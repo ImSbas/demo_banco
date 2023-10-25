@@ -30,7 +30,8 @@ public class cuentaController {
     @PostMapping(path = "/new")
     public ResponseEntity<?> createCuenta(@RequestBody Cuenta newCuenta){
         try{
-            if(service.createCuenta(newCuenta)) return new ResponseEntity<>("created succesfully", HttpStatus.OK);;
+            Cuenta cuenta = service.createCuenta(newCuenta);
+            if(cuenta != null) return new ResponseEntity<>(cuenta, HttpStatus.OK);;
             return new ResponseEntity<>("not created succesfully", HttpStatus.FORBIDDEN);
         }catch (Exception exception){
             System.out.println(exception.getMessage());
@@ -41,8 +42,8 @@ public class cuentaController {
     @DeleteMapping(path = "/delete")
     public ResponseEntity<?> deleteCuenta(@RequestParam String number){
         try{
-            System.out.println(number);
-            if(service.deleteCuenta(number)) return new ResponseEntity<>("deleted succesfully", HttpStatus.OK);;
+            Cuenta cuenta = service.deleteCuenta(number);
+            if(cuenta != null) return new ResponseEntity<>(cuenta, HttpStatus.OK);;
             return new ResponseEntity<>("not deleted succesfully", HttpStatus.FORBIDDEN);
         }catch (Exception exception){
             System.out.println(exception.getMessage());
@@ -53,7 +54,8 @@ public class cuentaController {
     @PutMapping(path = "/{number}")
     public ResponseEntity<?> updateCuenta(@PathVariable String number, @RequestBody Cuenta cuenta){
         try{
-            if(service.updateCuenta(number, cuenta)) return new ResponseEntity<>("updated succesfully", HttpStatus.OK);;
+            Cuenta cuentaUpdated = service.updateCuenta(number, cuenta);
+            if(cuentaUpdated != null) return new ResponseEntity<>("updated succesfully", HttpStatus.OK);;
             return new ResponseEntity<>("not updated succesfully", HttpStatus.FORBIDDEN);
         }catch (Exception exception){
             System.out.println(exception.getMessage());

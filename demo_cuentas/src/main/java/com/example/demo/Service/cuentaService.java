@@ -36,32 +36,31 @@ public class cuentaService {
         }
     }
 
-    public Boolean createCuenta(Cuenta cuenta){
+    public Cuenta createCuenta(Cuenta cuenta){
         try{
             cuenta.setNumber(hashService.hashString(cuenta.getNumber()));
             cuentaRepository.save(cuenta);
-            return true;
+            return cuenta;
         }catch (Exception exception){
             System.out.println(exception.getMessage());
-            return false;
+            return null;
         }
     }
 
-    public Boolean deleteCuenta(String number){
+    public Cuenta deleteCuenta(String number){
         try{
             String hashedNumber = hashService.hashString(number);
             Cuenta findedCuenta = cuentaRepository.getCuentaByNumber(hashedNumber);
-            System.out.println("aqui llego" + findedCuenta.getNumber());
             findedCuenta.setStatus(2);
             cuentaRepository.save(findedCuenta);
-            return true;
+            return findedCuenta;
         }catch (Exception exception){
             System.out.println(exception.getMessage());
-            return false;
+            return null;
         }
     }
 
-    public Boolean updateCuenta(String number, Cuenta cuenta) throws Exception{
+    public Cuenta updateCuenta(String number, Cuenta cuenta) throws Exception{
         try{
             Integer type;
             String hashedNumber = hashService.hashString(number);
@@ -71,11 +70,10 @@ public class cuentaService {
             if(cuenta.getStatus() != null)
                 findedCuenta.setStatus(cuenta.getStatus());
             cuentaRepository.save(findedCuenta);
-            return true;
+            return findedCuenta;
         }catch (Exception exception){
             System.out.println(exception.getMessage());
-            return false;
+            return null;
         }
     }
-
 }

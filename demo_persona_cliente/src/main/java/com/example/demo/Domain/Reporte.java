@@ -23,4 +23,12 @@ public class Reporte {
     @Column(name = "cards")
     private String card;
 
+    public Reporte(String fechas, Integer valores, String card) {
+        this.fechas = fechas;
+        this.valores = valores;
+        this.card = card;
+    }
+
+    public Reporte() {
+    }
 }

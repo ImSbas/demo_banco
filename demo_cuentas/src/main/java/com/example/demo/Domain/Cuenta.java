@@ -27,4 +27,10 @@ public class Cuenta {
     @Column(name = "owner_id")
     private Integer owner;
 
+    public Cuenta(String number) {
+        this.number = number;
+    }
+
+    public Cuenta() {
+    }
 }
