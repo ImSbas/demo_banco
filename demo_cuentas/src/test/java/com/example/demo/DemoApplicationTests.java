@@ -1,9 +1,11 @@
 package com.example.demo;
 
 import com.example.demo.Domain.Cuenta;
+import com.example.demo.Domain.Movimiento;
 import com.example.demo.Repository.cuentaRepository;
 import com.example.demo.Service.cuentaService;
 import com.example.demo.Service.hashService;
+import com.example.demo.Service.movimientoService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,8 +46,8 @@ class DemoApplicationTests {
 		Cuenta cuenta = new Cuenta("1234");
 		cuentaService mock = new cuentaService();
 		cuentaService service = Mockito.spy(mock);
-		Mockito.doReturn(true).when(service).createCuenta(cuenta);
-		Assert.assertEquals(true, service.createCuenta(cuenta));
+		Mockito.doReturn(cuenta).when(service).createCuenta(cuenta);
+		Assert.assertEquals(cuenta, service.createCuenta(cuenta));
 	}
 
 	@Test
@@ -58,4 +60,27 @@ class DemoApplicationTests {
 	}
 
 
+	@Test
+	void testGetAllMovimientos(){
+		List<Movimiento> movimientos = new ArrayList<>();
+		movimientos.add(new Movimiento());
+		movimientos.add(new Movimiento());
+		movimientos.add(new Movimiento());
+		movimientoService mock = new movimientoService();
+		movimientoService service = Mockito.spy(mock);
+		Mockito.doReturn(movimientos).when(service).getAllMovimiento("1");
+		Assert.assertEquals(movimientos.size(), service.getAllMovimiento("1").size());
+	}
+
+	@Test
+	void addMovimiento() {
+		Movimiento movimiento = new Movimiento();
+		movimientoService mock = new movimientoService();
+		movimientoService service = Mockito.spy(mock);
+		Mockito.doReturn("succesfull").when(service).registerMovimiento(1, "1");
+		Assert.assertEquals("succesfull", service.registerMovimiento(1,"1"));
+	}
 }
+
+
+
