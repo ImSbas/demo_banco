@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "8566bf73-9e98-4c55-9c26-fb589db09078",
+		"name": "demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30404126"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/client/list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/client/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"client",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/client/new",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 8,\r\n    \"name\": \"fulano\",\r\n    \"gender\": \"M\",\r\n    \"dateOfBirth\": \"2019/10/11 12/10/30\",\r\n    \"direction\": \"calle falsa\",\r\n    \"telephone\": \"12343456\",\r\n    \"identification\": \"10005467434\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/client/new",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"client",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/client/5",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"prima lejana de fulano\",\r\n    \"gender\": \"F\",\r\n    \"dateOfBirth\": \"2019/10/11 12/10/30\",\r\n    \"direction\": \"calle falsa no tan falta\",\r\n    \"telephone\": \"9999559\",\r\n    \"password\": \"14343434\",\r\n    \"status\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/client/5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"client",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/client/5",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/client/5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"client",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/cuentas/list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/cuentas/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"cuentas",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/cuentas/new",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"number\": \"43434\",\r\n    //\"number\":\"1234\",\r\n    \"tipoCuenta\": 1,\r\n    \"saldoInicial\": 10000,\r\n    \"status\": 1,\r\n    \"owner\":5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/cuentas/new",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"cuentas",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/cuentas/delete?number=1234",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/cuentas/delete?number=1234",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"cuentas",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "number",
+							"value": "1234"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/cuentas/43434",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipoCuenta\": 1,\r\n    \"status\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/cuentas/43434",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"cuentas",
+						"43434"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/cuentas/43434",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tipoCuenta\": 1,\r\n    \"status\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/cuentas/43434",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"cuentas",
+						"43434"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/movimientos/new?valor=10000&card=43434",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"tipoMovimiento\": 1,\r\n        \"valor\": 7000,\r\n        \"cardNumber\": \"43434\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/movimientos/new?valor=10000&card=43434",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"movimientos",
+						"new"
+					],
+					"query": [
+						{
+							"key": "valor",
+							"value": "10000"
+						},
+						{
+							"key": "card",
+							"value": "43434"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8081/movimientos/list/43434",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/movimientos/list/43434",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"movimientos",
+						"list",
+						"43434"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/client/report?idClient=5&firstDate=2023-05-25 00:00:00&lastDate=2023-08-25 09:08:18",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/client/report?idClient=5&firstDate=2023-05-25 00:00:00&lastDate=2023-08-25 09:08:18",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"client",
+						"report"
+					],
+					"query": [
+						{
+							"key": "idClient",
+							"value": "5"
+						},
+						{
+							"key": "firstDate",
+							"value": "2023-05-25 00:00:00"
+						},
+						{
+							"key": "lastDate",
+							"value": "2023-08-25 09:08:18"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
