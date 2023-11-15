@@ -1,34 +1,36 @@
 package com.example.demo.Domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.example.demo.DTO.cuentaDTO;
+import com.example.demo.Constants.statusCuenta;
+import com.example.demo.Constants.tipoCuenta;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
+
 @Getter
 @Setter
 public class Cuenta {
 
-    @Id
-    @Column(name = "number")
     private String number;
 
-    @Column(name = "type")
-    private Integer tipoCuenta;
+    private tipoCuenta tipoCuenta;
 
-    @Column(name = "balance")
     private Integer saldoInicial;
 
-    @Column(name = "status_id")
-    private Integer status;
+    private statusCuenta status;
 
-    @Column(name = "owner_id")
     private Integer owner;
 
     public Cuenta(String number) {
         this.number = number;
+    }
+
+    public Cuenta(cuentaDTO cuentaDTO) {
+        this.number = cuentaDTO.getNumber();
+        this.owner = cuentaDTO.getOwner();
+        this.tipoCuenta = com.example.demo.Constants.tipoCuenta.fromDescripcion(cuentaDTO.getTipoCuenta());
+        this.status = statusCuenta.fromDescripcion(cuentaDTO.getStatus());
+        this.saldoInicial = cuentaDTO.getSaldoInicial();
     }
 
     public Cuenta() {

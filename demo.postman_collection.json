@@ -147,7 +147,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"number\": \"43434\",\r\n    //\"number\":\"1234\",\r\n    \"tipoCuenta\": 1,\r\n    \"saldoInicial\": 10000,\r\n    \"status\": 1,\r\n    \"owner\":5\r\n}",
+					"raw": "{\r\n    //\"number\": \"43434\",\r\n    //\"number\":\"1234\",\r\n    //\"number\":\"1111\",\r\n    \"number\": \"2222\",\r\n    \"tipoCuenta\": \"CREDITO\",\r\n    \"saldoInicial\": 100000,\r\n    \"owner\":8\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -174,7 +174,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8081/cuentas/delete?number=1234",
+					"raw": "localhost:8081/cuentas/delete?number=2222",
 					"host": [
 						"localhost"
 					],
@@ -186,7 +186,7 @@
 					"query": [
 						{
 							"key": "number",
-							"value": "1234"
+							"value": "2222"
 						}
 					]
 				}
@@ -200,7 +200,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"tipoCuenta\": 1,\r\n    \"status\": 1\r\n}",
+					"raw": "{\r\n    \"tipoCuenta\": \"CREDITO\",\r\n    \"status\": \"ACTIVO\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -256,7 +256,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "    {\r\n        \"tipoMovimiento\": 1,\r\n        \"valor\": 7000,\r\n        \"cardNumber\": \"43434\"\r\n    }",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -264,7 +264,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8081/movimientos/new?valor=10000&card=43434",
+					"raw": "localhost:8081/movimientos/new?valor=20000&card=43434",
 					"host": [
 						"localhost"
 					],
@@ -276,7 +276,7 @@
 					"query": [
 						{
 							"key": "valor",
-							"value": "10000"
+							"value": "20000"
 						},
 						{
 							"key": "card",
@@ -313,7 +313,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/client/report?idClient=5&firstDate=2023-05-25 00:00:00&lastDate=2023-08-25 09:08:18",
+					"raw": "localhost:8080/client/report?idClient=8&firstDate=2023-11-15 09:49:11&lastDate=2023-11-15 10:31:28",
 					"host": [
 						"localhost"
 					],
@@ -325,15 +325,15 @@
 					"query": [
 						{
 							"key": "idClient",
-							"value": "5"
+							"value": "8"
 						},
 						{
 							"key": "firstDate",
-							"value": "2023-05-25 00:00:00"
+							"value": "2023-11-15 09:49:11"
 						},
 						{
 							"key": "lastDate",
-							"value": "2023-08-25 09:08:18"
+							"value": "2023-11-15 10:31:28"
 						}
 					]
 				}

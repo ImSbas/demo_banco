@@ -1,7 +1,12 @@
 package com.example.demo.Service;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.security.MessageDigest;
 
+@Service
 public class hashService {
 
     public String hashString(final String base) {

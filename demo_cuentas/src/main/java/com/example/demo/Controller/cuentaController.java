@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Domain.Cuenta;
+import com.example.demo.Domain.Reporte;
 import com.example.demo.Service.cuentaService;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,6 +61,17 @@ public class cuentaController {
         }catch (Exception exception){
             System.out.println(exception.getMessage());
             return new ResponseEntity<>(exception.getMessage(), HttpStatus.FORBIDDEN);
+        }
+    }
+
+    @GetMapping(path = "/report")
+    public List<Reporte> getReport(@RequestParam String firstDate, @RequestParam String lastDate, @RequestParam String idClient){
+        try{
+            List<Reporte> result = service.getReport(firstDate, lastDate, idClient);
+            return result;
+        }catch (Exception exception){
+            System.out.println(exception.getMessage());
+            return null;
         }
     }
 

@@ -46,11 +46,11 @@ CREATE TABLE Cuenta(
                        number varchar(70) not null primary key,
                        type integer not null,
                        balance integer not null,
-                       status_id integer not null,
+                       status integer not null,
                        owner_id integer not null,
                        FOREIGN KEY (type) references TipoCuenta(id),
                        FOREIGN KEY (owner_id) references cliente(id),
-                       FOREIGN KEY (status_id) references status(id_status)
+                       FOREIGN KEY (status) references status(id_status)
 );
 
 create table TipoMovimiento(
