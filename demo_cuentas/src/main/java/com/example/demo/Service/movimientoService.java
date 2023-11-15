@@ -1,5 +1,6 @@
 package com.example.demo.Service;
 
+import com.example.demo.Constants.tipoCuenta;
 import com.example.demo.DTO.cuentaDTO;
 import com.example.demo.DTO.movimientoDTO;
 import com.example.demo.Constants.tipoMovimiento;
@@ -57,15 +58,15 @@ public class movimientoService {
             String type;
             String hashedNumber = hashService.hashString(card);
             Cuenta findedCuenta = cuentaMapper.dtoToCuenta(cuentaRepository.getCuentaByNumber(hashedNumber));
-            if(findedCuenta.getSaldoInicial() < Math.abs(valor) && valor < 0){
+            if(findedCuenta.getSaldo() < Math.abs(valor) && valor < 0 ){
                 return "not founds enought to execute operation, recharge your account";
             }
-            findedCuenta.setSaldoInicial(findedCuenta.getSaldoInicial() + valor);
+            findedCuenta.setSaldo(findedCuenta.getSaldo() + valor);
             if (valor<0)
                 type = tipoMovimiento.RETIRO.getDescripcion();
             else
                 type = tipoMovimiento.ABONO.getDescripcion();
-            cuentaRepository.save(new cuentaDTO(findedCuenta));
+            cuentaRepository.save(cuentaMapper.cuentaToDto(findedCuenta));
             Date date = Calendar.getInstance().getTime();
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
             String strDate = dateFormat.format(date);

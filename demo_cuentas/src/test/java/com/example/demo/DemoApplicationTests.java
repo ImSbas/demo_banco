@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.example.demo.Domain.Cuenta;
 import com.example.demo.Domain.Movimiento;
+import com.example.demo.Domain.Reporte;
 import com.example.demo.Repository.cuentaRepository;
 import com.example.demo.Service.cuentaService;
 import com.example.demo.Service.hashService;
@@ -80,6 +81,19 @@ class DemoApplicationTests {
 		Mockito.doReturn("succesfull").when(service).registerMovimiento(1, "1");
 		Assert.assertEquals("succesfull", service.registerMovimiento(1,"1"));
 	}
+
+	@Test
+	void testReporte(){
+		List<Reporte> reporteList = new ArrayList<>();
+		reporteList.add(new Reporte("2023-05-25 00:00:00", 100, "1"));
+		reporteList.add(new Reporte("2023-05-25 00:00:00", 100, "1"));
+		reporteList.add(new Reporte("2023-05-25 00:00:00", 100, "1"));
+		cuentaService servicePersona = new cuentaService();
+		cuentaService service = Mockito.spy(servicePersona);
+		Mockito.doReturn(reporteList).when(service).getReport("2023-05-25 00:00:00", "2023-08-25 09:08:18", "1");
+		Assert.assertEquals(reporteList,service.getReport("2023-05-25 00:00:00", "2023-08-25 09:08:18", "1"));
+	}
+
 }
 
 

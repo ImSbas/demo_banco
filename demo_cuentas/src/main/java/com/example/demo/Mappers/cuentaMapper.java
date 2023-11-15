@@ -18,6 +18,7 @@ public class cuentaMapper {
         cuentaDTO.setTipoCuenta(cuenta.getTipoCuenta().getDescripcion());
         cuentaDTO.setStatus(cuenta.getStatus().getDescripcion());
         cuentaDTO.setSaldoInicial(cuenta.getSaldoInicial());
+        cuentaDTO.setSaldo(cuenta.getSaldo());
         return cuentaDTO;
     }
 
@@ -28,6 +29,7 @@ public class cuentaMapper {
         cuenta.setTipoCuenta(tipoCuenta.fromDescripcion(cuentaDTO.getTipoCuenta()));
         cuenta.setStatus(statusCuenta.fromDescripcion(cuentaDTO.getStatus()));
         cuenta.setSaldoInicial(cuentaDTO.getSaldoInicial());
+        cuenta.setSaldo(cuentaDTO.getSaldo());
         return cuenta;
     }
 }

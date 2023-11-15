@@ -23,6 +23,9 @@ public class cuentaDTO {
     private String tipoCuenta;
 
     @Column(name = "balance")
+    private Integer saldo;
+
+    @Column(name = "initial_balance")
     private Integer saldoInicial;
 
     @Column(name = "status")

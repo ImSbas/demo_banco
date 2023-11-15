@@ -2,10 +2,8 @@ package com.example.demo;
 
 import com.example.demo.Domain.Cliente;
 import com.example.demo.Domain.Persona;
-import com.example.demo.Domain.Reporte;
 import com.example.demo.Service.hashService;
 import com.example.demo.Service.servicePersona;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -54,18 +52,6 @@ class DemoApplicationTests {
 		servicePersona service = Mockito.spy(servicePersona);
 		Mockito.doReturn(true).when(service).deleteClient(1);
 		Assert.assertEquals(true,service.deleteClient(1));
-	}
-
-	@Test
-	void testReporte(){
-		List<Reporte> reporteList = new ArrayList<>();
-		reporteList.add(new Reporte("2023-05-25 00:00:00", 100, "1"));
-		reporteList.add(new Reporte("2023-05-25 00:00:00", 100, "1"));
-		reporteList.add(new Reporte("2023-05-25 00:00:00", 100, "1"));
-		servicePersona servicePersona = new servicePersona();
-		servicePersona service = Mockito.spy(servicePersona);
-		Mockito.doReturn(reporteList).when(service).getReport("2023-05-25 00:00:00", "2023-08-25 09:08:18", "1");
-		Assert.assertEquals(reporteList,service.getReport("2023-05-25 00:00:00", "2023-08-25 09:08:18", "1"));
 	}
 
 }

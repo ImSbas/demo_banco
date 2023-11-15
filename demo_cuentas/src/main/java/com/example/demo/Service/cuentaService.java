@@ -53,6 +53,8 @@ public class cuentaService {
 
     public Cuenta createCuenta(Cuenta cuenta){
         try{
+            cuenta.setSaldo(cuenta.getSaldoInicial());
+            System.out.println(cuenta.getSaldo());
             cuenta.setStatus(statusCuenta.ACTIVO);
             String hashedNumber = hashService.hashString(cuenta.getNumber());
             cuentaDTO cuentaDTO = this.cuentaRepository.verifiyExistence(hashedNumber);
@@ -71,7 +73,7 @@ public class cuentaService {
             String hashedNumber = hashService.hashString(number);
             Cuenta findedCuenta = cuentaMapper.dtoToCuenta(cuentaRepository.getCuentaByNumber(hashedNumber));
             findedCuenta.setStatus(statusCuenta.INACTIVO);
-            cuentaRepository.save(new cuentaDTO(findedCuenta));
+            cuentaRepository.save(cuentaMapper.cuentaToDto(findedCuenta));
             return findedCuenta;
         }catch (Exception exception){
             System.out.println(exception.getMessage());
@@ -88,7 +90,7 @@ public class cuentaService {
                 findedCuenta.setTipoCuenta(cuenta.getTipoCuenta());
             if(cuenta.getStatus() != null)
                 findedCuenta.setStatus(cuenta.getStatus());
-            cuentaRepository.save(new cuentaDTO(findedCuenta));
+            cuentaRepository.save(cuentaMapper.cuentaToDto(findedCuenta));
             return findedCuenta;
         }catch (Exception exception){
             System.out.println(exception.getMessage());

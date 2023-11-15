@@ -13,10 +13,10 @@ public interface cuentaRepository extends JpaRepository<cuentaDTO, String> {
     @Query(nativeQuery = true, value = "SELECT * FROM cuenta where status = 'Activo'")
     List<cuentaDTO> getAllActiveCuentas();
 
-    @Query(nativeQuery = true, value = "SELECT number, type, balance, status, owner_id FROM cuenta where status = 'Activo' and number = ?1")
+    @Query(nativeQuery = true, value = "SELECT number, type, balance,initial_balance, status, owner_id FROM cuenta where status = 'Activo' and number = ?1")
     cuentaDTO getCuentaByNumber(String number);
 
-    @Query(nativeQuery = true, value = "SELECT number, type, balance, status, owner_id FROM cuenta where number = ?1")
+    @Query(nativeQuery = true, value = "SELECT number, type, balance,initial_balance, status, owner_id FROM cuenta where number = ?1")
     cuentaDTO verifiyExistence(String number);
 
 }

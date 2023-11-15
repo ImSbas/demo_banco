@@ -17,20 +17,14 @@ public class Cuenta {
 
     private Integer saldoInicial;
 
+    private Integer saldo;
+
     private statusCuenta status;
 
     private Integer owner;
 
     public Cuenta(String number) {
         this.number = number;
-    }
-
-    public Cuenta(cuentaDTO cuentaDTO) {
-        this.number = cuentaDTO.getNumber();
-        this.owner = cuentaDTO.getOwner();
-        this.tipoCuenta = com.example.demo.Constants.tipoCuenta.fromDescripcion(cuentaDTO.getTipoCuenta());
-        this.status = statusCuenta.fromDescripcion(cuentaDTO.getStatus());
-        this.saldoInicial = cuentaDTO.getSaldoInicial();
     }
 
     public Cuenta() {

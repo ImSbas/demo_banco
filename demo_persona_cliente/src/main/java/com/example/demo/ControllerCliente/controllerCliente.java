@@ -1,7 +1,6 @@
 package com.example.demo.ControllerCliente;
 
 import com.example.demo.Domain.Cliente;
-import com.example.demo.Domain.Reporte;
 import com.example.demo.Service.servicePersona;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -63,15 +62,5 @@ public class controllerCliente {
         }
     }
 
-    @GetMapping(path = "/report")
-    public List<Reporte> getReport(@RequestParam String firstDate, @RequestParam String lastDate, @RequestParam String idClient){
-        try{
-            List<Reporte> result = service.getReport(firstDate, lastDate, idClient);
-            return result;
-        }catch (Exception exception){
-            System.out.println(exception.getMessage());
-            return null;
-        }
-    }
 
 }
